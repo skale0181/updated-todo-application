@@ -60,7 +60,7 @@ const GridItem4 = styled.div`
 export const Home = () => {
   const { token, userId, name } = useSelector((state) => state.login);
   const  todos  = useSelector((state) => state.todos.todos);
-console.log(todos)
+// console.log(todos)
   const dispatch = useDispatch();
 
   useEffect(() => {
