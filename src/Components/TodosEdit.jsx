@@ -1,3 +1,7 @@
+
+//-----------------------------------------------------------------------------------------------------------------------------------.//
+
+
 import { Action } from "history";
 import React, { useEffect, useReducer, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -8,22 +12,8 @@ import { useSelector } from "react-redux";
 import { Sidebar } from "./Sidebar";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from '@mui/material/Button';
-/*
-{
-    title: '',
-    description: '',
-    status: 'todo'|"doing"|"done",
-    tags: {official: true|false, important: true|false, urgent: true|false}},
-    date: Date,
-    subtasks: [
-        {
-            id: number,
-            subtititle: string,
-            status: 'todo'|"doing"|"done",
-        }
-    ]
-}
-*/
+
+
 
 const Container = styled.div`
 margin: 0;
@@ -162,10 +152,6 @@ const todoReducer = (state, { type, payload }) => {
 export const TodosEdit = () => {
   const [subtaskvalue, setSubtaskValue] = useState("");
 
-  //-----taking logedin userId from redux store and make post request
-  const {token, name,userId} = useSelector(state=>state.login)
-    const { todos } = useSelector((state) => state.todos);
-  // console.log(userId)
   
   const reduxDispatch = useDispatch()
   
@@ -175,20 +161,26 @@ export const TodosEdit = () => {
     const { title, description, subtasks, status, tags, date } = state;
     const { official, personal, others } = tags;
     
-   
+    const {token, name,userId} = useSelector(state=>state.login)
+    const { todos } = useSelector((state) => state.todos);
+    console.log(userId)
   ///take id from url
     const {id} = useParams()
+
+   
 
     //3. on component mount fetch data from server and edite it 
     useEffect(()=>{
         fetch(`http://localhost:5500/todos/${id}`)
         .then(res=>res.json())
         .then(res=>{
+          let data = res[0]
             dispatch({
                 type: "UPDATE_INITIAL_STATE_FORM_SERVER",
-                payload: res
+                payload: data
             })
-        }).catch((err)=>{console.log(err)})
+            console.log(data)
+        })
 
     },[])
 
@@ -220,7 +212,7 @@ export const TodosEdit = () => {
                 headers: {
                     "Content-Type": "application/json" }
         }).then(()=>{
-            reduxDispatch(getTodosData())
+            reduxDispatch(getTodosData({userId}))
         }).then(()=>navigate("/"))
     }
 
@@ -441,21 +433,3 @@ export const TodosEdit = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-///--------
-{/* <Button style={{backgroundColor:"rgb(253,93,93)",color:"white",margin:"5px"}} onClick={updateTask}
->EDIT TASK </Button> */}
