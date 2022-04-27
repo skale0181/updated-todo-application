@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { getTodosData } from "../Redux/Todos/action";
 import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
+import axios from "axios";
+
 const TaskWrapper = styled.div`
   margin: 5px;
   padding: 10px;
@@ -24,13 +26,36 @@ text-align: left;
 
 export const TaskItem = (props) => {
   // console.log("controlled tasks", props)
-  const { title, description, subtasks, status, tags, date, _id } = props;
+  const { title, description, subtasks, status, tags, date, _id, user_id } = props;
+  // console.log(props)
   const { personal, official, others } = tags;
 
   const userId = useSelector((store=>store.login.userId))
-
+  //  console.log(userId)
   const dispatch = useDispatch();
  const navigate = useNavigate();
+
+ const token = useSelector((store=>store.login.token))
+
+//-------------------delete todo function
+const delete_todo =()=>{
+  fetch(`http://localhost:5500/todos/${_id}`,{
+    method:"DELETE",
+    headers:{
+      "Content-Type":"application/json",
+      "Authorization":`Bearer ${token}`
+    }
+  }).then(res=>res.json())
+  .then(data=>{
+    console.log(data)
+    dispatch(getTodosData({userId}))
+  })
+  .catch(err=>console.log(err))
+
+  
+}
+
+
   return (
     <TaskWrapper>
       <HeadSection>
@@ -68,7 +93,8 @@ export const TaskItem = (props) => {
                       tags,
                       subtasks: subtasksAfterToggle,
                       status,
-                      user_id:userId,
+                      user_id,
+                      _id
                     };
 
                     fetch(`http://localhost:5500/todos/${_id}`, {
@@ -77,7 +103,7 @@ export const TaskItem = (props) => {
                       headers: {
                         "Content-Type": "application/json",
                       },
-                    }).then(() => dispatch(getTodosData()));
+                    }).then(() => dispatch(getTodosData({userId})));
                   }}
                 />
               </label>
@@ -87,6 +113,7 @@ export const TaskItem = (props) => {
         })}
       </SubtaskSection>
       <Button style={{backgroundColor:"rgb(253,93,93)", color:"white", margin:"5px"}} onClick={()=>navigate(`/todos/${_id}/edit`)}>EDIT</Button>
+      <Button style={{backgroundColor:"red",color:"white", margin:"5px"}} onClick={delete_todo}>DELETE</Button>
     </TaskWrapper>
   );
 };
