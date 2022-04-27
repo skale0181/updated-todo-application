@@ -17,7 +17,7 @@ padding: 10px;
 export const TaskContainer = ({tasks,color,heading,ocolor}) => {
   return <Wraper>
       <HeadingWraper color={color} ocolor={ocolor}>{heading}</HeadingWraper>
-      {tasks.map(task => <TaskItem key={task.id} {...task} />)}
+      {tasks.map(task => <TaskItem key={task._id} {...task} />)}
 
   </Wraper>;
 };
