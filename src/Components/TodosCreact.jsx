@@ -169,7 +169,7 @@ export const TodosCreact = () => {
             headers: {
                 "Content-Type": "application/json" }
         }).then(()=>{
-            reduxDispatch(getTodosData())
+            reduxDispatch(getTodosData({userId}))
         }).then(()=>{
             dispatch({type: "RESET_TASK"})
         })
