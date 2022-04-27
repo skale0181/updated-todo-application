@@ -396,3 +396,32 @@ export const TodosCreact = () => {
     </Container>
   );
 };
+
+
+//-----------------todo database formate------------//
+
+// "todos": [
+//   {
+//     "title": "task 1",
+//     "description": "nothing to say",
+//     "subtasks": [
+//       {
+//         "id": "c47d00de-021f-43be-8105-193b3ef1bfb5",
+//         "subTitle": "subtask 2",
+//         "status": true
+//       },
+//       {
+//         "id": "79c5c9ac-3144-4b07-b175-2477657d2abc",
+//         "subTitle": "ddgddss",
+//         "status": false
+//       }
+//     ],
+//     "status": "Todo",
+//     "tags": {
+//       "official": true,
+//       "personal": false,
+//       "others": false
+//     },
+//     "date": "2022-04-22",
+//     "id": 1
+//   }]
