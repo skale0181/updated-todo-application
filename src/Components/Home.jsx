@@ -73,13 +73,13 @@ export const Home = () => {
         <Sidebar token={token} name={name} todos={todos} />
       </GridItem1>
       <GridItem2>
-        <TaskContainer tasks={todos.filter((item)=>item.status==="Todo")}   color="rgb(159,192,136)" ocolor="green" heading="TODOS"/>
+        <TaskContainer tasks={todos.filter((item)=>item.status==="Todo")}   color="rgb(159,192,136)" ocolor="" heading="TODOS"/>
       </GridItem2>
       <GridItem3>
-        <TaskContainer tasks={todos.filter((item)=>item.status==="Inprogress")} color="rgb(232,192,125)" heading="IN PROGRESS"/>
+        <TaskContainer tasks={todos.filter((item)=>item.status==="Inprogress")} color="rgb(232,192,125)" ocolor="" heading="IN PROGRESS"/>
       </GridItem3>
       <GridItem4>
-        <TaskContainer tasks={todos.filter((item)=>item.status==="Done")} color="rgb(204,112,75)" heading="DONE"/>
+        <TaskContainer tasks={todos.filter((item)=>item.status==="Done")} color="rgb(204,112,75)" ocolor="" heading="DONE"/>
       </GridItem4>
     </Container>
   );

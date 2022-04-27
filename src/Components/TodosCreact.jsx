@@ -163,7 +163,7 @@ export const TodosCreact = () => {
   const createNewTask = ()=>{
       const payload = {...state,user_id:userId};
       
-      fetch(`http://localhost:5500/todos`, {
+      fetch(`https://updated-todo-application-0181.herokuapp.com/todos`, {
           method: "POST",
           body: JSON.stringify(payload),
             headers: {

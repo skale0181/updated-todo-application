@@ -19,7 +19,7 @@ export const getTodosError = (err) => ({
 
 export const getTodosData = ({userId}) => (dispatch) => {
     dispatch(getTodosLoading());
-     fetch(`http://localhost:5500/todos/${userId}`)
+     fetch(`https://updated-todo-application-0181.herokuapp.com/todos/${userId}`)
         .then(res => res.json())
         .then(res => {dispatch(getTodos(res))
         // console.log(res)

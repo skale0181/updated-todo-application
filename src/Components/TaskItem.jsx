@@ -96,8 +96,7 @@ const delete_todo =()=>{
                       user_id,
                       _id
                     };
-
-                    fetch(`http://localhost:5500/todos/${_id}`, {
+                    fetch(`https://updated-todo-application-0181.herokuapp.com/todos/${_id}`, {
                       method: "PUT",
                       body: JSON.stringify(payload),
                       headers: {

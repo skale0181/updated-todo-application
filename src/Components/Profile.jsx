@@ -19,7 +19,7 @@ export const Profile = ({ name, token }) => {
     //   .then((res) => setProfile(res))
     //   .catch((err) => console.log(err));
     
-    axios.get(`http://localhost:5500/users/${name}`)
+    axios.get(`https://updated-todo-application-0181.herokuapp.com/users/${name}`)
     .then((res)=>{setProfile(...res.data)
     // console.log(res.data)
     })

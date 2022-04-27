@@ -23,7 +23,7 @@ export const signupfailure = (payload)=>({
 export const signup =(payload)=> (dispatch) => {
     
     dispatch(signuploading())
-    fetch('http://localhost:5500/register', {
+    fetch('https://updated-todo-application-0181.herokuapp.com/register', {
         method: 'POST',
         body: JSON.stringify(payload),
         headers: {

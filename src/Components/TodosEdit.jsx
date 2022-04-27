@@ -171,7 +171,7 @@ export const TodosEdit = () => {
 
     //3. on component mount fetch data from server and edite it 
     useEffect(()=>{
-        fetch(`http://localhost:5500/todos/${id}`)
+        fetch(`https://updated-todo-application-0181.herokuapp.com/todos/${id}`)
         .then(res=>res.json())
         .then(res=>{
           let data = res[0]
@@ -206,7 +206,7 @@ export const TodosEdit = () => {
 
     const updateTask = ()=>{
         const payload = {...state};
-        fetch(`http://localhost:5500/todos/${id}`, {
+        fetch(`https://updated-todo-application-0181.herokuapp.com/todos/${id}`, {
             method: "PUT",
             body: JSON.stringify(payload),
                 headers: {

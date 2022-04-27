@@ -4,6 +4,10 @@
 body{
   background-color: rgb(238,238,238);
 }
+body::-webkit-scrollbar{
+  background-color: transparent;
+  width: 0px;
+}
 input{
   padding: 5px;
 }

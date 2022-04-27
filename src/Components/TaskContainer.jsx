@@ -12,6 +12,7 @@ text-align: center;
 background: ${(props) => props.color};
 border:2px solid ${(props) => props.ocolor};
 padding: 10px;
+font-weight: bold;
 `
 
 export const TaskContainer = ({tasks,color,heading,ocolor}) => {

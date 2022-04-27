@@ -13,8 +13,8 @@ import { useNavigate } from 'react-router-dom';
 export const Navbar = () => {
     const navigate = useNavigate()
   return (
-    <Box sx={{ flexGrow: 1 }}>
-    <AppBar position="relative" style={{backgroundColor:"rgb(204,112,75)"}}>
+    <Box sx={{ flexGrow: 1 }} >
+    <AppBar position="relative" style={{backgroundColor:"rgb(61,64,91)", height:"60px", border:"2px solid", position:"relative"}}>
       <Toolbar>
         <IconButton
           size="large"
