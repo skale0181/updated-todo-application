@@ -39,18 +39,27 @@ export const TaskItem = (props) => {
 
 //-------------------delete todo function
 const delete_todo =()=>{
-  fetch(`http://localhost:5500/todos/${_id}`,{
-    method:"DELETE",
-    headers:{
-      "Content-Type":"application/json",
-      "Authorization":`Bearer ${token}`
-    }
-  }).then(res=>res.json())
-  .then(data=>{
-    console.log(data)
+  // fetch(`http://localhost:5500/todos/${_id}`,{
+  //   method:"DELETE",
+  //   headers:{
+  //     "Content-Type":"application/json",
+  //     "Authorization":`Bearer ${token}`
+  //   }
+  // }).then(res=>res.json())
+  // .then(data=>{
+  //   console.log(data)
+  //   dispatch(getTodosData({userId}))
+  // })
+  // .catch(err=>console.log(err))
+
+  axios.delete(`http://localhost:5500/todos/${_id}`)
+  .then(res=>{
+    console.log(res)
     dispatch(getTodosData({userId}))
-  })
+  }
+  )
   .catch(err=>console.log(err))
+  
 
   
 }

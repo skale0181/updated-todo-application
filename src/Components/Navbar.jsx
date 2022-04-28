@@ -27,7 +27,7 @@ export const Navbar = () => {
           <HomeIcon />
         </IconButton>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-        <Button color="inherit" onClick={()=>navigate("/todos-create")}>Add Todo</Button>
+        <Button color="inherit" onClick={()=>navigate("/todos-create")}>Add Tasks</Button>
           
         </Typography>
         <Button color="inherit" onClick={()=>navigate("/login")}>Login</Button>
