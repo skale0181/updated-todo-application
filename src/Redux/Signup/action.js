@@ -31,7 +31,7 @@ export const signup =(payload)=> (dispatch) => {
         }
     }).then(res => res.json())
         .then((res) => {
-            dispatch(signupsuccess({name,token:res.token}))
+            dispatch(signupsuccess({token:res.token}))
             console.log(res)
         })
         .catch((err) => {dispatch(signupfailure(err))

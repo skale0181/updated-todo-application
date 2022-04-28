@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom"
-import { signup } from "../redux/signup/action";
+// import { signup } from "../redux/Signup/action";
 import styled from 'styled-components'
 import Button from '@mui/material/Button';
 
