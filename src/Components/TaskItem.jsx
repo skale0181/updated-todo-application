@@ -54,12 +54,12 @@ const delete_todo =()=>{
 
   axios.delete(`http://localhost:5500/todos/${_id}`)
   .then(res=>{
-    console.log(res)
+    // console.log(res)
     dispatch(getTodosData({userId}))
   }
   )
   .catch(err=>console.log(err))
-  
+
 
   
 }

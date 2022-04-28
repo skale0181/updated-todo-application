@@ -163,7 +163,7 @@ export const TodosEdit = () => {
     
     const {token, name,userId} = useSelector(state=>state.login)
     const { todos } = useSelector((state) => state.todos);
-    console.log(userId)
+    // console.log(userId)
   ///take id from url
     const {id} = useParams()
 
@@ -179,7 +179,7 @@ export const TodosEdit = () => {
                 type: "UPDATE_INITIAL_STATE_FORM_SERVER",
                 payload: data
             })
-            console.log(data)
+            // console.log(data)
         })
 
     },[])
@@ -389,7 +389,7 @@ export const TodosEdit = () => {
 
 
         {subtasks.map((subtask) => (
-          <div key={subtask.id} style={{display:"flex",justifyContent:"space-between"}}>
+          <div key={subtask._id} style={{display:"flex",justifyContent:"space-between"}}>
             <div>
 
             <label>

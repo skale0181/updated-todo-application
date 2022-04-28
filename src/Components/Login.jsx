@@ -36,9 +36,10 @@ export const Login = () => {
     dispatch(login(userDetails));
     
   };
-  if (token) {
+  if (isAuthenticated) {
     navigate("/");
   }
+
 
 
   const disabled = email.length === 0 || password.length === 0 
