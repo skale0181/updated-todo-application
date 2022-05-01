@@ -18,6 +18,9 @@ export const signupfailure = (payload)=>({
     payload
 })
 
+export const logout2 = () => ({
+    type: "LOGOUT2"
+});
 
 
 export const signup =(payload)=> (dispatch) => {

@@ -9,6 +9,7 @@ const initialState = {
     name:""
 };
 
+
 export const loginReducer = (store=initialState, {type,payload}) => {
     switch (type) {
         case LOGIN_LOADING:

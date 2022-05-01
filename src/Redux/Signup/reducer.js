@@ -17,6 +17,8 @@ export const signupreducer = (store=initialState,{type,payload})=>{
             return {...store,loading:false,error:false,isauthenticated:true}
         case SIGNUP_FAILURE:
             return {...store,loading:false, error:true,isauthenticated:false}
+        case "LOGOUT2":
+                return {...initialState}
         default:
             return store
     }
