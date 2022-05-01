@@ -32,7 +32,7 @@ export const signup =(payload)=> (dispatch) => {
     }).then(res => res.json())
         .then((res) => {
             dispatch(signupsuccess({token:res.token}))
-            console.log(res)
+            // console.log(res)
         })
         .catch((err) => {dispatch(signupfailure(err))
         console.log(err)

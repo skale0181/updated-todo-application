@@ -54,7 +54,7 @@ const delete_todo =()=>{
 
   axios.delete(`https://updated-todo-application-0181.herokuapp.com/todos/${_id}`)
   .then(res=>{
-    console.log(res)
+    // console.log(res)
     dispatch(getTodosData({userId}))
   }
   )

@@ -110,7 +110,7 @@ const initialState = {
   title: "",
   description: "",
   subtasks: [],
-  status: "",
+  status: "Todo",
   tags: {
     official: false,
     personal: false,
