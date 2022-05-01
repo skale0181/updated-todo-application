@@ -52,9 +52,9 @@ const delete_todo =()=>{
   // })
   // .catch(err=>console.log(err))
 
-  axios.delete(`http://localhost:5500/todos/${_id}`)
+  axios.delete(`https://updated-todo-application-0181.herokuapp.com/todos/${_id}`)
   .then(res=>{
-    // console.log(res)
+    console.log(res)
     dispatch(getTodosData({userId}))
   }
   )
