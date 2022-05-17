@@ -17,6 +17,10 @@ const LoginBox = styled.div`
   padding: 10px;
 `;
 
+const Inputbox = styled.input`
+border-radius: 5px;
+`
+
 export const Login = () => {
   const [email, setEmail] = React.useState("");
   const [name, setName] = React.useState("");
@@ -59,7 +63,7 @@ export const Login = () => {
         </label> */}
       
         <label>
-          <input
+          <Inputbox
             type="text"
             placeholder="email"
             value={email}
@@ -69,7 +73,7 @@ export const Login = () => {
         <br />
         <br />
         <label>
-          <input
+          <Inputbox
             type="password"
             placeholder="password"
             value={password}
@@ -79,12 +83,12 @@ export const Login = () => {
         <br />
         <br />
         <Button style={{backgroundColor:"rgb(253,93,93)"}} disabled={disabled} onClick={()=>handlelogin()}>
-          Login
+        {loading?"Loging In ....":"Login"}
         </Button>
         <hr />
-        {loading && <div>Loading...</div> || error && <div>somthing went wrong</div> }
+        {error && <div style={{color:'rgb(253,93,93)'}}>somthing went wrong</div> }
         <p>
-          Don't have an account? <Link to="/signup">Sign up</Link>
+          Don't have an account? <Link to="/signup"> Signup</Link>
         </p>
       </div>
     </LoginBox>

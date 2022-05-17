@@ -18,6 +18,10 @@ padding: 10px;
 margin-bottom: 20px;
 `
 
+const Inputbox = styled.input`
+border-radius: 5px;
+`
+
 
 export const Signup = ()=>{
     const navigate = useNavigate();
@@ -52,15 +56,15 @@ export const Signup = ()=>{
             <LoginBox>
 
             <h1>Signup</h1>
-            <input onChange={(e)=>{inputHandle(e)}} type="text" name="" id="name" placeholder="name" /> <br /><br />
-            <input onChange={(e)=>{inputHandle(e)}} type="text" name="" id="email" placeholder="email"/> <br /> <br />
-            <input onChange={(e)=>{inputHandle(e)}} type="text" name="" id="password" placeholder="Password"/> <br /> <br />
+            <Inputbox onChange={(e)=>{inputHandle(e)}} type="text" name="" id="name" placeholder="name" /> <br /><br />
+            <Inputbox onChange={(e)=>{inputHandle(e)}} type="text" name="" id="email" placeholder="email"/> <br /> <br />
+            <Inputbox onChange={(e)=>{inputHandle(e)}} type="text" name="" id="password" placeholder="Password"/> <br /> <br />
            
-            <Button style={{backgroundColor:"rgb(253,93,93)"}} onClick={()=>{handleSubmit()}}  disabled={disabled}>Signup</Button>
+            <Button style={{backgroundColor:"rgb(253,93,93)"}} onClick={()=>{handleSubmit()}}  disabled={disabled}>{loading?"Signing up...":"Signup"}</Button>
             <hr />
-            {loading && <p>Loading...</p> || error && <p>somthing went wrong</p>}
+            {error && <p style={{color:"rgb(253,93,93)"}}>somthing went wrong...</p>}
              <span>Already Have Account?</span>
-            <span onClick={()=>navigate("/login")} style={{color:'blue', cursor:"spanointer", fontWeight:"400", fontSize:"18px"}} > Login</span>
+            <span onClick={()=>navigate("/login")} style={{color:'blue', cursor:"spanointer", fontWeight:"400", fontSize:"18px"}} >Login</span>
             </LoginBox>
         </div>
     )

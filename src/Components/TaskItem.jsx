@@ -39,29 +39,21 @@ export const TaskItem = (props) => {
 
 //-------------------delete todo function
 const delete_todo =()=>{
-  // fetch(`http://localhost:5500/todos/${_id}`,{
-  //   method:"DELETE",
-  //   headers:{
-  //     "Content-Type":"application/json",
-  //     "Authorization":`Bearer ${token}`
-  //   }
-  // }).then(res=>res.json())
-  // .then(data=>{
-  //   console.log(data)
-  //   dispatch(getTodosData({userId}))
-  // })
-  // .catch(err=>console.log(err))
 
-  axios.delete(`https://updated-todo-application-0181.herokuapp.com/todos/${_id}`)
-  .then(res=>{
-    // console.log(res)
-    dispatch(getTodosData({userId}))
+  let text = "Do you want to delete this task?";
+  if (confirm(text) == true) {
+    
+    axios.delete(`https://updated-todo-application-0181.herokuapp.com/todos/${_id}`)
+    .then(res=>{
+      dispatch(getTodosData({userId}))
+    }
+    )
+    .catch(err=>console.log(err))  
+    alert("Todo Deleted")
+   
+  } else {
+    alert("Cancelled");
   }
-  )
-  .catch(err=>console.log(err))
-
-
-  
 }
 
 

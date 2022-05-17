@@ -9,9 +9,11 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export const Navbar = () => {
     const navigate = useNavigate()
+    const {token} = useSelector(state => state.login)
   return (
     <Box sx={{ flexGrow: 1 }} >
     <AppBar position="relative" style={{backgroundColor:"rgb(61,64,91)", height:"60px", border:"2px solid", position:"relative"}}>
@@ -30,7 +32,7 @@ export const Navbar = () => {
         <Button color="inherit" onClick={()=>navigate("/todos-create")}>Add Tasks</Button>
           
         </Typography>
-        <Button color="inherit" onClick={()=>navigate("/login")}>Login</Button>
+{ !token &&   <Button color="inherit" onClick={()=>navigate("/login")}>Login</Button>}
         <Button color="inherit" onClick={()=>navigate("/signup")}>Signup</Button>
       </Toolbar>
     </AppBar>

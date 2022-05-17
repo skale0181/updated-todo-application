@@ -135,7 +135,7 @@ const todoReducer = (state, { type, payload }) => {
         );
         return {...state, subtasks: subtasksAfterToggle}
     case "DELETE_SUBTASK":
-        const subtasksAfterDelete = state.subtasks.filter((e) => e.id !== payload
+        const subtasksAfterDelete = state.subtasks.filter((e) => e._id !== payload
         );
         return {...state, subtasks: subtasksAfterDelete}
     ///4. update initialState by data from server
@@ -214,6 +214,7 @@ export const TodosEdit = () => {
         }).then(()=>{
             reduxDispatch(getTodosData({userId}))
         }).then(()=>navigate("/"))
+        alert("Task updated")
     }
 
   return (
@@ -411,7 +412,7 @@ export const TodosEdit = () => {
                   </div>
                   <div>
                 <Button style={{backgroundColor:"rgb(253,93,93)",color:"white",margin:"5px"}}
-                onClick={() => dispatch({ type: "DELETE_SUBTASK", payload: subtask.id })}
+                onClick={() => dispatch({ type: "DELETE_SUBTASK", payload: subtask._id })}
                 >
                     DELETE
                 </Button>
