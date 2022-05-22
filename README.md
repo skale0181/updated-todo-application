@@ -24,7 +24,8 @@
   
   # Some SceenShorts:
   
-  ![TaskManager](/images/signup.png)
-  ![TaskManager](/images/login.png)
-  ![TaskManager](/images/addtask.png)
+  ![TaskManager](/images/signup..png)
+  ![TaskManager](/images/login..png)
+  ![TaskManager](/images/addtask..png)
+  ![TaskManager](/images/todomanager.png)
   
