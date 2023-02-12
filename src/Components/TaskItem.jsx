@@ -5,6 +5,7 @@ import { getTodosData } from "../Redux/Todos/action";
 import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import axios from "axios";
+import { GLOBAL_API } from "../Global-api";
 
 const TaskWrapper = styled.div`
   margin: 5px;
@@ -43,7 +44,7 @@ const delete_todo =()=>{
   let text = "Do you want to delete this task?";
   if (confirm(text) == true) {
     
-    axios.delete(`https://updated-todo-application-0181.herokuapp.com/todos/${_id}`)
+    axios.delete(GLOBAL_API+`todos/${_id}`)
     .then(res=>{
       dispatch(getTodosData({userId}))
     }
@@ -97,7 +98,7 @@ const delete_todo =()=>{
                       user_id,
                       _id
                     };
-                    fetch(`https://updated-todo-application-0181.herokuapp.com/todos/${_id}`, {
+                    fetch(GLOBAL_API+`todos/${_id}`, {
                       method: "PUT",
                       body: JSON.stringify(payload),
                       headers: {

@@ -1,0 +1,1 @@
+export const GLOBAL_API = "https://updated-todo-app.onrender.com/"

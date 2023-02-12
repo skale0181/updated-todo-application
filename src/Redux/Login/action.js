@@ -1,3 +1,5 @@
+import { GLOBAL_API } from "../../Global-api";
+
 ///type of action
 export const LOGIN_LOADING = 'LOGIN_LOADING';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -25,7 +27,7 @@ export const logout = () => ({
 export const login =({email,password})=> (dispatch) => {
     
     dispatch(loginLoading())
-    fetch('https://updated-todo-application-0181.herokuapp.com/login', {
+    fetch(GLOBAL_API+'login', {
         method: 'POST',
         body: JSON.stringify({email,password}),
         headers: {

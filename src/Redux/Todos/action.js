@@ -1,3 +1,5 @@
+import { GLOBAL_API } from "../../Global-api";
+
 export const GET_TODOS = 'GET_TODOS';
 export const GET_TODOS_LOADING = 'ADD_TODO_LOADING';
 export const GET_TODOS_ERROR = 'ADD_TODO_ERROR';
@@ -19,7 +21,7 @@ export const getTodosError = (err) => ({
 
 export const getTodosData = ({userId}) => (dispatch) => {
     dispatch(getTodosLoading());
-     fetch(`https://updated-todo-application-0181.herokuapp.com/todos/${userId}`)
+     fetch(GLOBAL_API+`todos/${userId}`)
         .then(res => res.json())
         .then(res => {dispatch(getTodos(res))
         // console.log(res)

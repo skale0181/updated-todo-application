@@ -4,6 +4,7 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import NotesIcon from '@mui/icons-material/Notes';
 import axios from "axios";
+import { GLOBAL_API } from "../Global-api";
 export const Profile = ({ name, token }) => {
   const [profile, setProfile] = useState({});
 
@@ -19,7 +20,7 @@ export const Profile = ({ name, token }) => {
     //   .then((res) => setProfile(res))
     //   .catch((err) => console.log(err));
     
-    axios.get(`https://updated-todo-application-0181.herokuapp.com/users/${name}`)
+    axios.get(GLOBAL_API+`users/${name}`)
     .then((res)=>{setProfile(...res.data)
     // console.log(res.data)
     })

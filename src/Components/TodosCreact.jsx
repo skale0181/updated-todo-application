@@ -7,6 +7,7 @@ import styled from "styled-components"
 import { useSelector } from "react-redux";
 import { Sidebar } from "./Sidebar";
 import Button from '@mui/material/Button';
+import { GLOBAL_API } from "../Global-api";
 /*
 {
     title: '',
@@ -163,7 +164,7 @@ export const TodosCreact = () => {
   const createNewTask = ()=>{
       const payload = {...state,user_id:userId};
       
-      fetch(`https://updated-todo-application-0181.herokuapp.com/todos`, {
+      fetch(GLOBAL_API+`todos`, {
           method: "POST",
           body: JSON.stringify(payload),
             headers: {

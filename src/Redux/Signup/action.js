@@ -1,3 +1,5 @@
+import { GLOBAL_API } from "../../Global-api";
+
 //action type
 export const SIGNUP_LOADING = "SIGNUP_LOADING";
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
@@ -26,7 +28,7 @@ export const logout2 = () => ({
 export const signup =(payload)=> (dispatch) => {
     
     dispatch(signuploading())
-    fetch('https://updated-todo-application-0181.herokuapp.com/register', {
+    fetch(GLOBAL_API+'register', {
         method: 'POST',
         body: JSON.stringify(payload),
         headers: {

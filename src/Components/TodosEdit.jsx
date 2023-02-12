@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import { Sidebar } from "./Sidebar";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from '@mui/material/Button';
+import { GLOBAL_API } from "../Global-api";
 
 
 
@@ -171,7 +172,7 @@ export const TodosEdit = () => {
 
     //3. on component mount fetch data from server and edite it 
     useEffect(()=>{
-        fetch(`https://updated-todo-application-0181.herokuapp.com/todos/${id}`)
+        fetch(GLOBAL_API+`todos/${id}`)
         .then(res=>res.json())
         .then(res=>{
           let data = res[0]
@@ -206,7 +207,7 @@ export const TodosEdit = () => {
 
     const updateTask = ()=>{
         const payload = {...state};
-        fetch(`https://updated-todo-application-0181.herokuapp.com/todos/${id}`, {
+        fetch(GLOBAL_API+`todos/${id}`, {
             method: "PUT",
             body: JSON.stringify(payload),
                 headers: {
